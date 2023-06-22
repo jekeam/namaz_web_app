@@ -1,0 +1,65 @@
+body {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+#notifications {
+  background-color: #fff;
+}
+
+#notifications label {
+  color: #000;
+}
+
+#notifications input[type="checkbox"],
+#notifications input[type="number"] {
+  margin-top: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#notifications button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #000;
+  cursor: pointer;
+}
+
+#notifications button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Применяем значения из ThemeParams */
+:root {
+  --tg-theme-bg-color: #f5f5f5;
+  --tg-theme-text-color: #000;
+  --tg-theme-hint-color: #888;
+  --tg-theme-link-color: #007bff;
+  --tg-theme-button-color: #f2f2f2;
+  --tg-theme-button-text-color: #000;
+  --tg-theme-secondary-bg-color: #fff;
+}
+
+body {
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+#notifications {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+label, h2 {
+  color: var(--tg-theme-text-color);
+}
+
+button {
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+}
+
+button:hover {
+  background-color: var(--tg-theme-hint-color);
+}

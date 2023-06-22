@@ -1,112 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Настройки</title>
-  <link rel="stylesheet" href="https://telegram.org/css/tdesktop/tdesktop.css">
-  <style>
-    :root {
-      --tg-theme-bg-color: #ffffff; /* цвет фона по умолчанию */
-      --tg-theme-text-color: #000000; /* основной цвет текста по умолчанию */
-      --tg-theme-hint-color: #888888; /* цвет подсказки текста по умолчанию */
-      --tg-theme-link-color: #0078ff; /* цвет ссылок по умолчанию */
-      --tg-theme-button-color: #0078ff; /* цвет кнопок по умолчанию */
-      --tg-theme-button-text-color: #ffffff; /* цвет текста на кнопках по умолчанию */
-      --tg-theme-secondary-bg-color: #f2f2f2; /* вторичный цвет фона по умолчанию */
-    }
-
-    body {
-      background-color: var(--tg-theme-bg-color);
-      color: var(--tg-theme-text-color);
-    }
-
-    .section-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .setting-item {
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://telegram.org/css/tdesktop/tdesktop.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
-  <div class="tgme_container">
-    <div class="tgme_widget_message_wrap">
-      <div class="tgme_widget_message">
-        <div class="section-title">Уведомления</div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="namazEnabled">О намазе</label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="preNotificationsEnabled">Предварительные уведомления</label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="ramadanEnabled">Рамадан</label>
-        </div>
-        <div class="section-title">Погода</div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="weatherEnabled">Вкл./Выкл.</label>
-        </div>
-        <div class="section-title">Корректировки</div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="autoCorrectionEnabled">Автоматический</label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="thirdPartOfNightEnabled">Последняя треть ночи (Вкл./Выкл.)</label>
-        </div>
-        <div class="setting-item">
-          <label>Фаджр смещение в минутах от 0 до 99:<br><input type="number" id="fajrOffset" min="0" max="99"></label>
-        </div>
-        <div class="setting-item">
-          <label>Фаджр градусы от 10.0 до 25.0:<br><input type="number" id="fajrDegrees" min="10.0" max="25.0" step="0.1"></label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="zuhrEnabled">Зухр</label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="maghribEnabled">Магриб</label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="asrEnabled">Аср</label>
-        </div>
-        <div class="setting-item">
-          <label><input type="checkbox" id="highLatCorrectionEnabled">Корректировка высоких широт</label>
-        </div>
-        <div class="section-title">Язык</div>
-        <div class="setting-item">
-          <label>Выберите язык из БД:<br>
-            <select id="languageSelect">
-              <option value="ru">Русский</option>
-              <option value="en">English</option>
-              <!-- Остальные языки -->
-            </select>
-          </label>
-        </div>
-      </div>
+
+
+<div id="notifications">
+    <h2>Уведомления</h2>
+    <div class="setting">
+        <label for="prayer-reminder">Напоминание о намазе:</label>
+        <input type="checkbox" id="prayer-reminder">
     </div>
-  </div>
+    <div class="setting">
+        <label for="advance-reminder">Напоминать заранее:</label>
+        <input type="checkbox" id="advance-reminder">
+        <input type="number" id="advance-time" min="1" max="99" disabled>
+    </div>
+    <div class="setting">
+        <button id="subtract">-</button>
+        <button id="add">+</button>
+        <button id="fast-5">5 мин</button>
+        <button id="fast-10">10 мин</button>
+        <button id="fast-15">15 мин</button>
+        <button id="fast-30">30 мин</button>
+        <button id="fast-45">45 мин</button>
+        <button id="fast-60">60 мин</button>
+    </div>
+</div>
 
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="text/javascript">
-    window.onload = function() {
-      Telegram.WebApp.expand();
-
-      // Получаем объект ThemeParams
-      var themeParams = Telegram.WebApp.themeParams;
-
-      // Если объект существует, применяем настройки темы
-      if (themeParams) {
-        var root = document.documentElement;
-        root.style.setProperty('--tg-theme-bg-color', themeParams.bg_color || '#ffffff');
-        root.style.setProperty('--tg-theme-text-color', themeParams.text_color || '#000000');
-        root.style.setProperty('--tg-theme-hint-color', themeParams.hint_color || '#888888');
-        root.style.setProperty('--tg-theme-link-color', themeParams.link_color || '#0078ff');
-        root.style.setProperty('--tg-theme-button-color', themeParams.button_color || '#0078ff');
-        root.style.setProperty('--tg-theme-button-text-color', themeParams.button_text_color || '#ffffff');
-        root.style.setProperty('--tg-theme-secondary-bg-color', themeParams.secondary_bg_color || '#f2f2f2');
-      }
-    };
-  </script>
 </body>
 </html>
