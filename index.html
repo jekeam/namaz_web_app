@@ -2,37 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Settings</title>
-    <link rel="stylesheet" href="https://telegram.org/css/tdesktop/tdesktop.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Страница настроек</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="form_logic.js"></script>
     <script src="script.js"></script>
 </head>
 <body>
+<div class="container">
+    <h1>Настройки</h1>
+
+    <div class="card">
+        <div class="card-header">
+            Уведомления
+        </div>
+        <div class="card-body">
+            <div class="form-switch">
+                <input class="form-check-input" type="checkbox" id="notificationSwitch">
+                <label class="form-check-label" for="notificationSwitch">
+                    Включить напоминание о намазе
+                </label>
+            </div>
+
+            <div class="form-switch mt-3 remind-min">
+                <input class="form-check-input" type="checkbox" id="reminderSwitch">
+                <label class="form-check-label" for="reminderSwitch">
+                    Напоминать заранее
+                </label>
+            </div>
+        </div>
+    </div>
 
 
-<div id="notifications">
-    <h2>Уведомления</h2>
-    <div class="setting">
-        <label for="prayer-reminder">Напоминание о намазе:</label>
-        <input type="checkbox" id="prayer-reminder">
-    </div>
-    <div class="setting">
-        <label for="advance-reminder">Напоминать заранее:</label>
-        <input type="checkbox" id="advance-reminder">
-        <input type="number" id="advance-time" min="1" max="99" disabled>
-    </div>
-    <div class="setting">
-        <button id="subtract">-</button>
-        <button id="add">+</button>
-        <button id="fast-5">5 мин</button>
-        <button id="fast-10">10 мин</button>
-        <button id="fast-15">15 мин</button>
-        <button id="fast-30">30 мин</button>
-        <button id="fast-45">45 мин</button>
-        <button id="fast-60">60 мин</button>
-    </div>
 </div>
-
 </body>
 </html>
