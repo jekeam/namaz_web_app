@@ -1,0 +1,28 @@
+:root {
+  --tg-theme-bg-color: #ffffff;
+  --tg-theme-text-color: #000000;
+  --tg-theme-hint-color: #888888;
+  --tg-theme-link-color: #0078ff;
+  --tg-theme-button-color: #0078ff;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-secondary-bg-color: #f2f2f2;
+}
+
+.theme-header {
+  background-color: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+.theme-body {
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+.input-number {
+  max-width: 75px;
+  text-align: center;
+}
+
+#reminderInputContainer {
+  display: none;
+}

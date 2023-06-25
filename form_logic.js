@@ -1,27 +1,53 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Получаем ссылки на переключатели
+document.addEventListener("DOMContentLoaded", function () {
+  // Получаем ссылки на переключатели и контейнер поля ввода
   const notificationSwitch = document.getElementById('notificationSwitch');
   const reminderSwitch = document.getElementById('reminderSwitch');
-  // Скрываем блок "remind-min" при загрузке страницы, если notificationSwitch выключен
+  const reminderInputContainer = document.getElementById('reminderInputContainer');
+
+  // Скрываем поле ввода "Напоминать заранее" при загрузке страницы
   if (!notificationSwitch.checked) {
-    hideRemindMin();
+    hideReminderSwitch();
   }
+  // Скрываем поле ввода "Дополнительно за" при загрузке страницы
+  if (!reminderSwitch.checked) {
+    hideReminderInput();
+  }
+
   // Добавляем обработчик события изменения состояния переключателя notificationSwitch
   notificationSwitch.addEventListener('change', function () {
     if (notificationSwitch.checked) {
-      showRemindMin();
+      showReminderSwitch();
     } else {
-      hideRemindMin();
+      hideReminderSwitch();
     }
   });
-  // Функция для скрытия блока "remind-min"
-  function hideRemindMin() {
-    const remindMin = document.querySelector('.remind-min');
-    remindMin.style.display = 'none';
+
+  // Добавляем обработчик события изменения состояния переключателя reminderSwitch
+  reminderSwitch.addEventListener('change', function () {
+    if (reminderSwitch.checked) {
+      showReminderInput();
+    } else {
+      hideReminderInput();
+    }
+  });
+
+  // Функция для отображения переключателя "Напоминать заранее"
+  function showReminderSwitch() {
+    reminderSwitch.parentElement.style.display = 'block';
   }
-  // Функция для отображения блока "remind-min"
-  function showRemindMin() {
-    const remindMin = document.querySelector('.remind-min');
-    remindMin.style.display = 'block';
+
+  // Функция для скрытия переключателя "Напоминать заранее"
+  function hideReminderSwitch() {
+    reminderSwitch.parentElement.style.display = 'none';
+  }
+
+  // Функция для отображения поля ввода "Дополнительно за"
+  function showReminderInput() {
+    reminderInputContainer.style.display = 'block';
+  }
+
+  // Функция для скрытия поля ввода "Дополнительно за"
+  function hideReminderInput() {
+    reminderInputContainer.style.display = 'none';
   }
 });
