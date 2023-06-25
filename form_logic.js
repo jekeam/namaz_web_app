@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  //Bootstrap
-
   // Получаем ссылки на переключатели
   const notificationSwitch = document.getElementById('notificationSwitch');
   const reminderSwitch = document.getElementById('reminderSwitch');
