@@ -50,4 +50,33 @@ document.addEventListener("DOMContentLoaded", function () {
   function hideReminderInput() {
     reminderInputContainer.style.display = 'none';
   }
+
+
+
+
+
+
+
+
+
+  // КНОПКИ БЫСТРОЙ ВСТАВКИ МИНУТ
+  // Получаем кнопки быстрого выбора значений
+  var quickSelectButtons = document.querySelectorAll('.quick-select-button');
+
+  // Обработчик события для кнопок быстрого выбора значений
+  function handleQuickSelect(event) {
+    // Получаем значение кнопки
+    var value = event.target.dataset.value;
+
+    // Находим поле ввода
+    var reminderMinutesInput = document.getElementById('reminderMinutes');
+
+    // Устанавливаем значение поля ввода
+    reminderMinutesInput.value = value;
+  }
+
+  // Добавляем обработчик события для каждой кнопки быстрого выбора
+  quickSelectButtons.forEach(function (button) {
+    button.addEventListener('click', handleQuickSelect);
+  });
 });

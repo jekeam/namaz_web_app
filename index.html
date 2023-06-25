@@ -32,14 +32,19 @@
                 </label>
                 <div id="reminderInputContainer" style="display: none;">
                     <label for="reminderMinutes">Дополнительно за</label>
+
                     <div class="input-group">
-                        <input type="number" id="reminderMinutes" class="form-control input-number" min="1" max="60"
-                               value="15">
+                        <input type="number" id="reminderMinutes" class="form-control input-number"
+                               min="1" max="60" value="15">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
-                            <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
+                            <button class="btn btn-outline-secondary quick-select-button" type="button" data-value="5">5</button>
+                            <button class="btn btn-outline-secondary quick-select-button" type="button" data-value="10">10</button>
+                            <button class="btn btn-outline-secondary quick-select-button" type="button" data-value="15">15</button>
+                            <button class="btn btn-outline-secondary quick-select-button" type="button" data-value="30">30</button>
+                            <button class="btn btn-outline-secondary quick-select-button" type="button" data-value="60">60</button>
                         </div>
                     </div>
+
                     <label for="reminderMinutes">минут</label>
                 </div>
             </div>
