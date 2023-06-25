@@ -31,7 +31,7 @@ button {
 
 /* Не имеет отношения к стилю */
 .input-number {
-  max-width: 75px;
+  max-width: 50px;
   text-align: center;
 }
 

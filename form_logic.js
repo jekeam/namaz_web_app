@@ -53,6 +53,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  // КНОПКИ + и -
+  // Получаем ссылку на поле ввода
+  var reminderMinutesInput = document.getElementById('reminderMinutes');
+
+  // Получаем кнопки "+" и "-"
+  var plusButton = document.querySelector('button[data-type="plus"]');
+  var minusButton = document.querySelector('button[data-type="minus"]');
+
+  // Обработчик события для кнопки "+"
+  plusButton.addEventListener('click', function () {
+    incrementValue();
+  });
+
+  // Обработчик события для кнопки "-"
+  minusButton.addEventListener('click', function () {
+    decrementValue();
+  });
+
+  // Функция для увеличения значения
+  function incrementValue() {
+    var currentValue = parseInt(reminderMinutesInput.value);
+    var newValue = currentValue + 5;
+
+    if (newValue <= 60) {
+      reminderMinutesInput.value = newValue;
+    }
+  }
+
+  // Функция для уменьшения значения
+  function decrementValue() {
+    var currentValue = parseInt(reminderMinutesInput.value);
+    var newValue = currentValue - 5;
+
+    if (newValue >= 5) {
+      reminderMinutesInput.value = newValue;
+    }
+  }
+
 
 
 
