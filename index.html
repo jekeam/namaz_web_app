@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Страница настроек</title>
@@ -9,73 +10,73 @@
     <script src="form_logic.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
-<div class="container">
-    <h1>Настройки</h1>
+    <div class="container">
 
-    <div class="card">
-        <div class="card-header">
-            Уведомления
-        </div>
-        <div class="card-body">
-            <div class="form-switch">
-                <input class="form-check-input" type="checkbox" id="notificationSwitch">
-                <label class="form-check-label" for="notificationSwitch">
-                    Включить напоминание о намазе
-                </label>
+        <div class="card">
+            <div class="card-header">
+                Уведомления
             </div>
-
-            <div class="form-switch mt-3 remind-min">
-                <input class="form-check-input" type="checkbox" id="reminderSwitch">
-                <label class="form-check-label" for="reminderSwitch">
-                    Напоминать заранее
-                </label>
-                <div id="reminderInputContainer" style="display: none;">
-                    <label for="reminderMinutes">Дополнительно за</label>
-
-                    <div class="input-group">
-                        <span class="input-group-prepend">
-                            <button type="button" class="btn btn-outline-secondary btn-number" data-type="minus" data-field="quant[1]">
-                                <b>-</b>
-                            </button>
-                        </span>
-                        <input name="quant[1]" type="number" id="reminderMinutes" class="form-control input-number" min="1" max="60" value="15">
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
-                                <b>+</b>
-                            </button>
-                        </span>
-                    </div>
-
-                    <div class="input-group-append d-flex justify-content-center">
-                        <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="5">5</button>
-                        <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="10">10</button>
-                        <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="15">15</button>
-                        <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="30">30</button>
-                        <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="60">60</button>
-                    </div>
-
-                    <label for="reminderMinutes">минут</label>
+            <div class="card-body">
+                <div class="form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationSwitch">
+                    <label class="form-check-label" for="notificationSwitch">
+                        Включить напоминание о намазе
+                    </label>
                 </div>
+
+                <div class="form-switch mt-3 remind-min">
+
+                    <input class="form-check-input" type="checkbox" id="reminderSwitch">
+                    <label class="form-check-label" for="reminderSwitch">
+                        Напоминать заранее
+                    </label>
+                    <div id="reminderInputContainer" style="display: none;">
+                        <label for="reminderMinutes">Дополнительно за (минут)</label>
+
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="minus" data-field="quant[1]">
+                                    <b>-</b>
+                                </button>
+                            </span>
+                            <input name="quant[1]" type="number" id="reminderMinutes" class="form-control input-number" min="1" max="60" value="15">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="plus" data-field="quant[1]">
+                                    <b>+</b>
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="input-group-append d-flex justify-content-center">
+                            <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="5">5</button>
+                            <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="10">10</button>
+                            <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="15">15</button>
+                            <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="30">30</button>
+                            <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="60">60</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-switch mt-3 last-hour">
+                    <input class="form-check-input" type="checkbox" id="lastHourSwitch">
+                    <label class="form-check-label" for="lastHourSwitch">
+                        Последний час пятницы
+                    </label>
+                </div>
+
+                <div class="form-switch mt-3 ramadan-reminder">
+                    <input class="form-check-input" type="checkbox" id="ramadanReminderSwitch">
+                    <label class="form-check-label" for="ramadanReminderSwitch">
+                        Напоминание о Рамаданe
+                    </label>
+                </div>
+
+
             </div>
-
-            <div class="form-switch mt-3 last-hour">
-                <input class="form-check-input" type="checkbox" id="lastHourSwitch">
-                <label class="form-check-label" for="lastHourSwitch">
-                    Последний час пятницы
-                </label>
-            </div>
-
-            <div class="form-switch mt-3 ramadan-reminder">
-                <input class="form-check-input" type="checkbox" id="ramadanReminderSwitch">
-                <label class="form-check-label" for="ramadanReminderSwitch">
-                    Напоминание о Рамаданe
-                </label>
-            </div>
-
-
         </div>
     </div>
-</div>
 </body>
+
 </html>

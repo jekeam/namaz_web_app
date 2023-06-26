@@ -20,21 +20,31 @@ body {
   color: var(--tg-theme-text-color) !important;
 }
 
-button {
+.btn-number {
+  /* background-color: var(--tg-theme-button-color) !important;
+  color: var(--tg-theme-button-text-color) !important; */
+  border: none !important;
+}
+
+.quick-select-button,
+.form-check-input:checked {
   background-color: var(--tg-theme-button-color) !important;
-  /* Цвет кнопки */
   color: var(--tg-theme-button-text-color) !important;
-  /* Цвет текста кнопки */
+  border: var(--tg-theme-button-color) !important;
 }
 
 
 
 /* Не имеет отношения к стилю */
 .input-number {
-  max-width: 50px;
+  max-width: 75px;
   text-align: center;
 }
 
 #reminderInputContainer {
   display: none;
+}
+
+.card {
+  margin-top: 5px;
 }

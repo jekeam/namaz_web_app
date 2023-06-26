@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
       sendNotify: sendNotify,
       remindMin: remindMin,
       lastHourFriday: lastHourFriday,
-      ramadhanNotify: ramadanNotify,
-
+      ramadhanNotify: ramadanNotify,      
     });
+        
     Telegram.WebApp.sendData(data);
     Telegram.WebApp.close();
   });
