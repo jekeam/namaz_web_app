@@ -15,27 +15,21 @@
     <div class="container">
 
         <div class="card">
-            <div class="card-header">
-                Уведомления
-            </div>
+            <div class="card-header fw-bold">🔔 Уведомления и Погода ⛅</div>
             <div class="card-body">
                 <div class="form-switch">
                     <input class="form-check-input" type="checkbox" id="notificationSwitch">
-                    <label class="form-check-label" for="notificationSwitch">
-                        Включить напоминание о намазе
-                    </label>
+                    <label class="form-check-label" for="notificationSwitch">Включить напоминание о намазе</label>
                 </div>
 
-                <div class="form-switch mt-3 remind-min">
+                <div class="form-switch mt-1 remind-min">
 
                     <input class="form-check-input" type="checkbox" id="reminderSwitch">
-                    <label class="form-check-label" for="reminderSwitch">
-                        Напоминать заранее
-                    </label>
+                    <label class="form-check-label" for="reminderSwitch">Напоминать заранее</label>
                     <div id="reminderInputContainer" style="display: none;">
                         <label for="reminderMinutes">Дополнительно за (минут)</label>
 
-                        <div class="input-group">
+                        <div class="input-group mt-1">
                             <span class="input-group-prepend">
                                 <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="minus" data-field="quant[1]">
                                     <b>-</b>
@@ -49,7 +43,7 @@
                             </span>
                         </div>
 
-                        <div class="input-group-append d-flex justify-content-center">
+                        <div class="input-group-append d-flex justify-content-center mt-1">
                             <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="5">5</button>
                             <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="10">10</button>
                             <button class="btn btn-outline-secondary quick-select-button mx-1" type="button" data-value="15">15</button>
@@ -59,23 +53,38 @@
                     </div>
                 </div>
 
-                <div class="form-switch mt-3 last-hour">
+                <div class="form-switch mt-1 last-hour">
                     <input class="form-check-input" type="checkbox" id="lastHourSwitch">
-                    <label class="form-check-label" for="lastHourSwitch">
-                        Последний час пятницы
-                    </label>
+                    <label class="form-check-label" for="lastHourSwitch">Последний час пятницы</label>
                 </div>
 
-                <div class="form-switch mt-3 ramadan-reminder">
+                <div class="form-switch mt-1 ramadan-reminder">
                     <input class="form-check-input" type="checkbox" id="ramadanReminderSwitch">
-                    <label class="form-check-label" for="ramadanReminderSwitch">
-                        Напоминание о Рамаданe
-                    </label>
+                    <label class="form-check-label" for="ramadanReminderSwitch">Напоминание о Рамаданe</label>
                 </div>
+
+
+                <div class="form-switch">
+                    <input class="form-check-input" type="checkbox" id="weatherSwitch">
+                    <label class="form-check-label" for="weatherSwitch">Включить погоду</label>
+                </div>
+
 
 
             </div>
         </div>
+
+        <div class="card">
+            <div class="card-header fw-bold">🤲 Корректировка времи намаза</div>
+            <div class="card-body">
+                <div class="form-switch">
+                    <input class="form-check-input" type="checkbox" id="weatherSwitch">
+                    <label class="form-check-label" for="weatherSwitch">Включить погоду</label>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </body>
 

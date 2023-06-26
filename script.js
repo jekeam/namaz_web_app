@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var remindMin = urlParams.get('remind_min');
   var lastHourFriday = urlParams.get('last_hour_friday');
   var ramadhanNotify = urlParams.get('ramadhan_notify');
+  var weather = urlParams.get('weather');
 
   // Применяем значения к форме
   var notificationSwitch = document.getElementById('notificationSwitch');
@@ -34,8 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
   var reminderMinutes = document.getElementById('reminderMinutes');
   var lastHourSwitch = document.getElementById('lastHourSwitch');
   var ramadanReminderSwitch = document.getElementById('ramadanReminderSwitch');
+  var weatherSwitch = document.getElementById('weatherSwitch');
 
   // УСТАНОВКА НАСТРОЕК
+  if (weather == 'on') {
+    weatherSwitch.checked = true;
+  } else {
+    weatherSwitch.checked = false;
+  }
+
   if (sendNotify === 'True') {
     notificationSwitch.checked = true;
   } else {
@@ -66,12 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Имитируем событие change для переключателей, чтобы обновить состояние формы
   var event = new Event('change');
+  weatherSwitch.dispatchEvent(event);
   notificationSwitch.dispatchEvent(event);
   reminderSwitch.dispatchEvent(event);
 
 
   Telegram.WebApp.ready();
   Telegram.WebApp.MainButton.setText('Ok').show().onClick(function () {
+    const weather = weatherSwitch.checked ? 'on' : 'off';
     const sendNotify = notificationSwitch.checked;
     const remindMin = reminderSwitch.checked ? reminderMinutes.value : 0;
     const lastHourFriday = lastHourSwitch.checked;
@@ -81,9 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
       sendNotify: sendNotify,
       remindMin: remindMin,
       lastHourFriday: lastHourFriday,
-      ramadhanNotify: ramadanNotify,      
+      ramadhanNotify: ramadanNotify,
+      weather: weather,
     });
-        
+
     Telegram.WebApp.sendData(data);
     Telegram.WebApp.close();
   });
