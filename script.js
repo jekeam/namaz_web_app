@@ -103,6 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const remindMin = reminderSwitch.checked ? reminderMinutes.value : 0;
     const lastHourFriday = lastHourSwitch.checked;
     const ramadanNotify = ramadanReminderSwitch.checked;
+    const fajr = fajrDegrees.value;
+    const fajrMin = fajrMinutes.value;
 
     const data = JSON.stringify({
       sendNotify: sendNotify,
@@ -111,6 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
       ramadhanNotify: ramadanNotify,
       weather: weather,
       third_night: thirdNight,
+      fajr: fajr,
+      fajr_min: fajrMin + ' min',
     });
 
     Telegram.WebApp.sendData(data);

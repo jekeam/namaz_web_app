@@ -30,15 +30,15 @@
                     <div id="reminderInputContainer" style="display: none;">
                         <label for="reminderMinutes">Дополнительно за (минут)</label>
 
-                        <div class="input-group mt-1">
+                        <div class="input-group d-flex justify-content-center mt-1">
                             <span class="input-group-prepend">
-                                <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="minus" data-field="quant[1]">
+                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="minus" data-field="quant[1]">
                                     <i class="fas fa-minus"></i>
                                 </button>
                             </span>
                             <input name="quant[1]" type="number" id="reminderMinutes" class="form-control input-number" min="1" max="60" value="15">
                             <span class="input-group-append">
-                                <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="plus" data-field="quant[1]">
+                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </span>
@@ -80,40 +80,42 @@
 
         <div class="card">
             <div class="card-header fw-bold">🤲 Корректировка времени намаза</div>
+
             <div class="card-body">
-                <div class="form-header fw-bold">Смещение Фаджр</div>
-                
+                <div class="form-header fw-bold">🌅 Смещение Фаджр</div>
+
                 <div class="row">
                     <div class="col">
-                        <div class="form-group">
+                        <div class="form-group text-center justify-content-center mt-1">
                             <label for="fajrDegrees">Градусы</label>
-                            <div class="input-group">
+                            <div class="input-group justify-content-center mt-1">
                                 <span class="input-group-prepend">
-                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="decrementValue('fajrDegrees', 0.1)">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('decrement', 'fajrDegrees')">
                                         <i class="fas fa-minus"></i>
                                     </button>
                                 </span>
-                                <input type="number" class="form-control input-number" id="fajrDegrees" min="10" max="25" step="0.1" lang="en">
+                                <input type="number" class="form-control input-number text-center" id="fajrDegrees" min="10" max="25" step="0.1" lang="en">
                                 <span class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="incrementValue('fajrDegrees', 0.1)">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('increment', 'fajrDegrees')">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </span>
                             </div>
                         </div>
                     </div>
+
                     <div class="col">
-                        <div class="form-group">
+                        <div class="form-group text-center justify-content-center mt-1">
                             <label for="fajrMinutes">Минуты</label>
-                            <div class="input-group">
+                            <div class="input-group justify-content-center mt-1">
                                 <span class="input-group-prepend">
-                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="decrementValue('fajrMinutes', 1)">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('decrement', 'fajrMinutes')">
                                         <i class="fas fa-minus"></i>
                                     </button>
                                 </span>
-                                <input type="number" class="form-control input-number" id="fajrMinutes" min="-99" max="99" step="1">
+                                <input type="number" class="form-control input-number text-center" id="fajrMinutes" min="-99" max="99" step="1">
                                 <span class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="incrementValue('fajrMinutes', 1)">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('increment', 'fajrMinutes')">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </span>
@@ -121,10 +123,49 @@
                         </div>
                     </div>
                 </div>
-                
-                
-                
+
             </div>
+
+
+            <div class="card-body">
+                <div class="form-header fw-bold">☀️⛅🌇🌙 Смещение Зухр</div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <div class="form-group text-center justify-content-center mt-1">
+                            <label for="dhuhrTime">Время</label>
+                            <div class="input-group justify-content-center mt-1">
+                                <input type="time" class="form-control" id="dhuhrTime" min="12:00" max="15:00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group text-center justify-content-center mt-1">
+                            <label for="dhuhrMinutes">Минуты</label>
+                            
+                            <div class="input-group justify-content-center mt-1">
+                                <span class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('decrement', 'minutes')">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+
+                                <input type="number" class="form-control input-number text-center" id="dhuhrMinutes" min="-99" max="99" step="1">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('increment', 'minutes')">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 

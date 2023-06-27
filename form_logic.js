@@ -121,14 +121,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // МИНУТЫ И ГРАДУСЫ ФАДЖ
-function incrementValue(fieldId, step) {
-  var field = document.getElementById(fieldId);
-  var value = parseFloat(field.value) || 0;
-  field.value = (value + step).toFixed(1);
+function simulateArrowKeyPress(event, inputId) {
+  var input = document.getElementById(inputId);
+  var step = parseFloat(input.step);
+  var value = parseFloat(input.value);
+  var min = parseFloat(input.min);
+  var max = parseFloat(input.max);
+
+  if (event === 'increment') {
+    value += step;
+  } else if (event === 'decrement') {
+    value -= step;
+  }
+
+  value = Math.max(min, Math.min(max, value));
+
+  var keyboardEvent = new KeyboardEvent('keydown', {
+    bubbles: true,
+    cancelable: true,
+    key: 'ArrowUp', // Для инкремента используйте 'ArrowUp', для декремента - 'ArrowDown'
+    keyCode: 38, // Код клавиши 'ArrowUp' или 'ArrowDown'
+  });
+
+  input.value = value.toFixed(inputId === 'degrees' ? 1 : 0);
+  input.dispatchEvent(keyboardEvent);
 }
 
-function decrementValue(fieldId, step) {
-  var field = document.getElementById(fieldId);
-  var value = parseFloat(field.value) || 0;
-  field.value = (value - step).toFixed(1);
-}
+
