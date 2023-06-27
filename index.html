@@ -6,6 +6,7 @@
     <title>Страница настроек</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="form_logic.js"></script>
     <script src="script.js"></script>
@@ -32,13 +33,13 @@
                         <div class="input-group mt-1">
                             <span class="input-group-prepend">
                                 <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="minus" data-field="quant[1]">
-                                    <b>-</b>
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </span>
                             <input name="quant[1]" type="number" id="reminderMinutes" class="form-control input-number" min="1" max="60" value="15">
                             <span class="input-group-append">
                                 <button type="button" class="btn btn-outline-secondary btn-number btn-outline-info" data-type="plus" data-field="quant[1]">
-                                    <b>+</b>
+                                    <i class="fas fa-plus"></i>
                                 </button>
                             </span>
                         </div>
@@ -69,20 +70,64 @@
                     <label class="form-check-label" for="weatherSwitch">Включить погоду</label>
                 </div>
 
-
+                <div class="form-switch">
+                    <input class="form-check-input" type="checkbox" id="thirdNightSwitch">
+                    <label class="form-check-label" for="thirdNightSwitch">Показывать последнюю треть ночи</label>
+                </div>
 
             </div>
         </div>
 
         <div class="card">
-            <div class="card-header fw-bold">🤲 Корректировка времи намаза</div>
+            <div class="card-header fw-bold">🤲 Корректировка времени намаза</div>
             <div class="card-body">
-                <div class="form-switch">
-                    <input class="form-check-input" type="checkbox" id="weatherSwitch">
-                    <label class="form-check-label" for="weatherSwitch">Включить погоду</label>
+                <div class="form-header fw-bold">Смещение Фаджр</div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="fajrDegrees">Градусы</label>
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="decrementValue('fajrDegrees', 0.1)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="number" class="form-control input-number" id="fajrDegrees" min="10" max="25" step="0.1" lang="en">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="incrementValue('fajrDegrees', 0.1)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="fajrMinutes">Минуты</label>
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="decrementValue('fajrMinutes', 1)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="number" class="form-control input-number" id="fajrMinutes" min="-99" max="99" step="1">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="incrementValue('fajrMinutes', 1)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                
+                
             </div>
         </div>
+    </div>
+
 
 
     </div>

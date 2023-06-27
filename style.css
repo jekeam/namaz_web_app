@@ -38,7 +38,7 @@ body {
 
 /* Не имеет отношения к стилю */
 .input-number {
-  max-width: 75px;
+  max-width: 100px;
   text-align: center;
 }
 

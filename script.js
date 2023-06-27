@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var lastHourFriday = urlParams.get('last_hour_friday');
   var ramadhanNotify = urlParams.get('ramadhan_notify');
   var weather = urlParams.get('weather');
+  var thirdNight = urlParams.get('third_night');
+  var fajr = urlParams.get('fajr');
+  var fajrMin = urlParams.get('fajr_min');
 
   // Применяем значения к форме
   var notificationSwitch = document.getElementById('notificationSwitch');
@@ -36,12 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
   var lastHourSwitch = document.getElementById('lastHourSwitch');
   var ramadanReminderSwitch = document.getElementById('ramadanReminderSwitch');
   var weatherSwitch = document.getElementById('weatherSwitch');
+  var thirdNightSwitch = document.getElementById('thirdNightSwitch');
+  var fajrDegrees = document.getElementById('fajrDegrees');
+  var fajrMinutes = document.getElementById('fajrMinutes');
+  
 
   // УСТАНОВКА НАСТРОЕК
+  fajrDegrees.value = fajr;
+  fajrMinutes.value = fajrMin;
+
   if (weather == 'on') {
     weatherSwitch.checked = true;
   } else {
     weatherSwitch.checked = false;
+  }
+  if (thirdNight === 'True') {
+    thirdNightSwitch.checked = true;
+  } else {
+    thirdNightSwitch.checked = false;
   }
 
   if (sendNotify === 'True') {
@@ -75,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Имитируем событие change для переключателей, чтобы обновить состояние формы
   var event = new Event('change');
   weatherSwitch.dispatchEvent(event);
+  thirdNightSwitch.dispatchEvent(event);
   notificationSwitch.dispatchEvent(event);
   reminderSwitch.dispatchEvent(event);
 
@@ -83,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
   Telegram.WebApp.MainButton.setText('Ok').show().onClick(function () {
     const weather = weatherSwitch.checked ? 'on' : 'off';
     const sendNotify = notificationSwitch.checked;
+    const thirdNight = thirdNightSwitch.checked;
     const remindMin = reminderSwitch.checked ? reminderMinutes.value : 0;
     const lastHourFriday = lastHourSwitch.checked;
     const ramadanNotify = ramadanReminderSwitch.checked;
@@ -93,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lastHourFriday: lastHourFriday,
       ramadhanNotify: ramadanNotify,
       weather: weather,
+      third_night: thirdNight,
     });
 
     Telegram.WebApp.sendData(data);

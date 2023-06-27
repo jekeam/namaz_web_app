@@ -118,3 +118,17 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener('click', handleQuickSelect);
   });
 });
+
+
+// МИНУТЫ И ГРАДУСЫ ФАДЖ
+function incrementValue(fieldId, step) {
+  var field = document.getElementById(fieldId);
+  var value = parseFloat(field.value) || 0;
+  field.value = (value + step).toFixed(1);
+}
+
+function decrementValue(fieldId, step) {
+  var field = document.getElementById(fieldId);
+  var value = parseFloat(field.value) || 0;
+  field.value = (value - step).toFixed(1);
+}
