@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var thirdNight = urlParams.get('third_night');
   var fajr = urlParams.get('fajr');
   var fajrMin = urlParams.get('fajr_min');
+  var dhuhr = urlParams.get('dhuhr');
 
   // Применяем значения к форме
   var notificationSwitch = document.getElementById('notificationSwitch');
@@ -40,13 +41,26 @@ document.addEventListener("DOMContentLoaded", function () {
   var ramadanReminderSwitch = document.getElementById('ramadanReminderSwitch');
   var weatherSwitch = document.getElementById('weatherSwitch');
   var thirdNightSwitch = document.getElementById('thirdNightSwitch');
+
   var fajrDegrees = document.getElementById('fajrDegrees');
   var fajrMinutes = document.getElementById('fajrMinutes');
-  
+
+  var dhuhrTimeHour = document.getElementById('dhuhrTimeHour');
+  var dhuhrTimeMin = document.getElementById('dhuhrTimeMin')
+  var dhuhrMinutes = document.getElementById('dhuhrMinutes');
+
 
   // УСТАНОВКА НАСТРОЕК
   fajrDegrees.value = fajr;
   fajrMinutes.value = fajrMin;
+
+  if (dhuhr.includes(':')) {
+    var times = dhuhr.split(":");
+    dhuhrTimeHour.value = times[0];
+    dhuhrTimeMin.value = times[1];
+  } else {
+    dhuhrMinutes.value = dhuhr;
+  }
 
   if (weather == 'on') {
     weatherSwitch.checked = true;

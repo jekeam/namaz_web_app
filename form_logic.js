@@ -147,4 +147,3 @@ function simulateArrowKeyPress(event, inputId) {
   input.dispatchEvent(keyboardEvent);
 }
 
-

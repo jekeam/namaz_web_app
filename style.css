@@ -14,6 +14,8 @@ body {
   color: var(--tg-theme-text-color) !important;
 }
 
+
+
 .card,
 .card-header,
 .form-control {
@@ -48,4 +50,11 @@ body {
 
 .card {
   margin-top: 5px;
+}
+
+
+.input-group-text {
+  padding: 0.4rem 0.35rem !important;
+  background-color: transparent !important;
+  border: none !important;
 }
