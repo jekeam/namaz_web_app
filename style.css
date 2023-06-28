@@ -44,6 +44,11 @@ body {
   text-align: center;
 }
 
+.input-number-list {
+  max-width: 50px;
+  text-align: center;
+}
+
 #reminderInputContainer {
   display: none;
 }

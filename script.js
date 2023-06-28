@@ -1,3 +1,34 @@
+// Переключение кнопок для ЗУХР
+function showFixedTimeSection() {
+  var fixedTimeSection = document.getElementById("fixedTimeSection");
+  var minutesSection = document.getElementById("minutesSection");
+  fixedTimeSection.style.display = "block";
+  minutesSection.style.display = "none";
+
+  var btnFixedTime = document.getElementById("btnFixedTime");
+  var btnMinutesLabel = document.querySelector("label[for='btnMinutes']");
+
+  btnFixedTime.checked = true;
+  btnMinutesLabel.classList.remove("active");
+}
+
+function showMinutesSection() {
+  var fixedTimeSection = document.getElementById("fixedTimeSection");
+  var minutesSection = document.getElementById("minutesSection");
+  fixedTimeSection.style.display = "none";
+  minutesSection.style.display = "block";
+
+  var btnFixedTime = document.getElementById("btnFixedTime");
+  var btnMinutesLabel = document.querySelector("label[for='btnMinutes']");
+
+  btnFixedTime.checked = false;
+  btnMinutesLabel.classList.add("active");
+}
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   Telegram.WebApp.expand();
 
@@ -18,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var objString = JSON.stringify(Telegram.WebApp);
   console.log(objString);
+
 
 
   // Получаем значения из GET-параметров
@@ -60,6 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
     dhuhrTimeMin.value = times[1];
   } else {
     dhuhrMinutes.value = dhuhr;
+  }
+
+  if (dhuhr && dhuhr.includes(':')) {
+    // Активировать вкладку "Фикс. время"
+    showFixedTimeSection();
+  } else {
+    // Активировать вкладку "Минуты"
+    showMinutesSection();
   }
 
   if (weather == 'on') {
@@ -119,6 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const ramadanNotify = ramadanReminderSwitch.checked;
     const fajr = fajrDegrees.value;
     const fajrMin = fajrMinutes.value;
+    
+    var fixedTimeRadio = document.getElementById("btnFixedTime");
+    const dhuhr = fixedTimeRadio.checked ? dhuhrTimeHour.value + ':' + dhuhrTimeMin.value : dhuhrMinutes.value + ' min';
 
     const data = JSON.stringify({
       sendNotify: sendNotify,
@@ -129,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
       third_night: thirdNight,
       fajr: fajr,
       fajr_min: fajrMin + ' min',
+      dhuhr: dhuhr,
     });
 
     Telegram.WebApp.sendData(data);

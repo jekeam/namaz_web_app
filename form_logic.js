@@ -143,7 +143,6 @@ function simulateArrowKeyPress(event, inputId) {
     keyCode: 38, // Код клавиши 'ArrowUp' или 'ArrowDown'
   });
 
-  input.value = value.toFixed(inputId === 'degrees' ? 1 : 0);
+  input.value = value.toFixed(inputId.includes('Degrees') ? 1 : 0);
   input.dispatchEvent(keyboardEvent);
 }
-
