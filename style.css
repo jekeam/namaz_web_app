@@ -30,10 +30,18 @@ body {
 }
 
 .quick-select-button,
+.btn-check:checked+.btn,
+.btn.active,
 .form-check-input:checked {
   background-color: var(--tg-theme-button-color) !important;
   color: var(--tg-theme-button-text-color) !important;
   border: var(--tg-theme-button-color) !important;
+  border-color: var(--tg-theme-button-color) !important;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--tg-theme-button-color) !important;
+  --bs-btn-border-color: var(--tg-theme-button-color) !important;
 }
 
 
