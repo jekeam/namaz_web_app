@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var fajr = urlParams.get('fajr');
   var fajrMin = urlParams.get('fajr_min');
   var dhuhr = urlParams.get('dhuhr');
+  var asr = urlParams.get('asr');
 
   // Применяем значения к форме
   var notificationSwitch = document.getElementById('notificationSwitch');
@@ -81,10 +82,32 @@ document.addEventListener("DOMContentLoaded", function () {
   var dhuhrTimeMin = document.getElementById('dhuhrTimeMin')
   var dhuhrMinutes = document.getElementById('dhuhrMinutes');
 
+  var autoAsr = document.getElementById('autoAsr');
+  var standardAsr = document.getElementById('standardAsr');
+  var hanafiAsr = document.getElementById('hanafiAsr');
+  var autoAsrLable = document.querySelector("label[for='autoAsr']")
+  var autoAsrLableDiv = document.getElementById("autoAsrDiv")
+  
+
+
 
   // УСТАНОВКА НАСТРОЕК
   fajrDegrees.value = fajr;
   fajrMinutes.value = fajrMin;
+
+  if (asr == 'Hanafi') {
+    autoAsrLable.style.display = "none";
+    autoAsrLableDiv.style.display = "none";
+    hanafiAsr.checked = true;
+  } else if (asr == 'Standard') {
+    autoAsrLable.style.display = "none";
+    autoAsrLableDiv.style.display = "none";
+    standardAsr.checked = true;    
+  } else {
+    autoAsr.checked = true;    
+    autoAsrLable.style.display = "block";
+    autoAsrLableDiv.style.display = "block";
+  }
 
   if (dhuhr.includes(':')) {
     var times = dhuhr.split(":");
@@ -159,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ramadanNotify = ramadanReminderSwitch.checked;
     const fajr = fajrDegrees.value;
     const fajrMin = fajrMinutes.value;
-    
+
     var fixedTimeRadio = document.getElementById("btnFixedTime");
     const dhuhr = fixedTimeRadio.checked ? dhuhrTimeHour.value + ':' + dhuhrTimeMin.value : dhuhrMinutes.value + ' min';
 
@@ -173,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fajr: fajr,
       fajr_min: fajrMin + ' min',
       dhuhr: dhuhr,
+      asr: asr,
     });
 
     Telegram.WebApp.sendData(data);
