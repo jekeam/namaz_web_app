@@ -198,7 +198,7 @@
             </div>
 
             <div class="card-body">
-                <div class="form-header fw-bold">⛅🌇🌙 Аср</div>
+                <div class="form-header fw-bold">⛅ Аср</div>
 
                 <div class="row">
                     <div class="col">
@@ -229,6 +229,33 @@
 
 
             </div>
+
+            <div class="card-body">
+                <div class="form-header fw-bold">🌇🌙 Магриб</div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group text-center justify-content-center mt-1">
+                            <label for="maghribMinutes">Минуты</label>
+                            <div class="input-group justify-content-center mt-1">
+                                <span class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('decrement', 'maghribMinutes')">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="number" class="form-control input-number text-center" id="maghribMinutes" min="-99" max="99" step="1">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary btn-number" onclick="simulateArrowKeyPress('increment', 'maghribMinutes')">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
 

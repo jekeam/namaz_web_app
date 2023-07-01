@@ -64,7 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var fajr = urlParams.get('fajr');
   var fajrMin = urlParams.get('fajr_min');
   var dhuhr = urlParams.get('dhuhr');
-  var asr = urlParams.get('asr');
+  var asrp = urlParams.get('asr');
+  var maghrib = urlParams.get('maghrib');
 
   // Применяем значения к форме
   var notificationSwitch = document.getElementById('notificationSwitch');
@@ -85,26 +86,34 @@ document.addEventListener("DOMContentLoaded", function () {
   var autoAsr = document.getElementById('autoAsr');
   var standardAsr = document.getElementById('standardAsr');
   var hanafiAsr = document.getElementById('hanafiAsr');
-  var autoAsrLable = document.querySelector("label[for='autoAsr']")
-  var autoAsrLableDiv = document.getElementById("autoAsrDiv")
-  
+  var autoAsrLable = document.querySelector("label[for='autoAsr']");
+  var autoAsrLableDiv = document.getElementById("autoAsrDiv");
+
+  var maghribMinutes = document.getElementById('maghribMinutes');
+
 
 
 
   // УСТАНОВКА НАСТРОЕК
   fajrDegrees.value = fajr;
   fajrMinutes.value = fajrMin;
+  maghribMinutes.value = maghrib;
 
-  if (asr == 'Hanafi') {
+  if (asrp == 'Hanafi') {
+
     autoAsrLable.style.display = "none";
     autoAsrLableDiv.style.display = "none";
     hanafiAsr.checked = true;
-  } else if (asr == 'Standard') {
+
+  } else if (asrp == 'Standard') {
+
     autoAsrLable.style.display = "none";
     autoAsrLableDiv.style.display = "none";
-    standardAsr.checked = true;    
+    standardAsr.checked = true;
+
   } else {
-    autoAsr.checked = true;    
+
+    autoAsr.checked = true;
     autoAsrLable.style.display = "block";
     autoAsrLableDiv.style.display = "block";
   }
@@ -182,9 +191,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const ramadanNotify = ramadanReminderSwitch.checked;
     const fajr = fajrDegrees.value;
     const fajrMin = fajrMinutes.value;
+    const maghriMin = maghribMinutes.value;
 
     var fixedTimeRadio = document.getElementById("btnFixedTime");
     const dhuhr = fixedTimeRadio.checked ? dhuhrTimeHour.value + ':' + dhuhrTimeMin.value : dhuhrMinutes.value + ' min';
+    const asr_ = hanafiAsr.checked ? 'Hanafi' : standardAsr.checked ? 'Standard' : asrp;
 
     const data = JSON.stringify({
       sendNotify: sendNotify,
@@ -196,7 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
       fajr: fajr,
       fajr_min: fajrMin + ' min',
       dhuhr: dhuhr,
-      asr: asr,
+      asr: asr_,
+      maghrib: maghriMin + ' min',
     });
 
     Telegram.WebApp.sendData(data);
