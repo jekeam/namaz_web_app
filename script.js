@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var dhuhr = urlParams.get('dhuhr');
   var asrp = urlParams.get('asr');
   var maghrib = urlParams.get('maghrib');
+  var high_long = urlParams.get('high_long');
 
   // Применяем значения к форме
   var notificationSwitch = document.getElementById('notificationSwitch');
@@ -91,6 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var maghribMinutes = document.getElementById('maghribMinutes');
 
+  var nightMiddle = document.getElementById('nightMiddle');
+  var oneSeventh = document.getElementById('oneSeventh');
+  var angleBased = document.getElementById('angleBased');
+
 
 
 
@@ -98,6 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
   fajrDegrees.value = fajr;
   fajrMinutes.value = fajrMin;
   maghribMinutes.value = maghrib;
+
+  if (high_long == "NightMiddle") {
+    nightMiddle.checked = true;
+  } else if (high_long == "OneSeventh") {
+    oneSeventh.checked = true;
+  } else if (high_long == "AngleBased") {
+    angleBased.checked = true;
+  }
 
   if (asrp == 'Hanafi') {
 
@@ -196,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var fixedTimeRadio = document.getElementById("btnFixedTime");
     const dhuhr = fixedTimeRadio.checked ? dhuhrTimeHour.value + ':' + dhuhrTimeMin.value : dhuhrMinutes.value + ' min';
     const asr_ = hanafiAsr.checked ? 'Hanafi' : standardAsr.checked ? 'Standard' : asrp;
+    const high_long = angleBased.checked ? 'AngleBased' : nightMiddle.checked ? 'NightMiddle' : "OneSeventh";
 
     const data = JSON.stringify({
       sendNotify: sendNotify,
@@ -209,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dhuhr: dhuhr,
       asr: asr_,
       maghrib: maghriMin + ' min',
+      high_long: high_long,
     });
 
     Telegram.WebApp.sendData(data);
