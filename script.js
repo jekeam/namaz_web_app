@@ -30,7 +30,7 @@ function showMinutesSection() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  Telegram.WebApp.expand();
+  // Telegram.WebApp.expand();
 
   // Получаем объект ThemeParams
   var themeParams = Telegram.WebApp.themeParams;

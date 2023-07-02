@@ -9,7 +9,8 @@
 }
 
 /* Применение стилей к разметке */
-body {
+body,
+.form-header {
   background-color: var(--tg-theme-secondary-bg-color) !important;
   color: var(--tg-theme-text-color) !important;
 }
@@ -69,6 +70,11 @@ body {
 
 .card {
   margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.card-body {  
+  border-block: inherit;
 }
 
 
@@ -76,4 +82,10 @@ body {
   padding: 0.4rem 0.35rem !important;
   background-color: transparent !important;
   border: none !important;
+}
+
+b {
+  font-size: 120%;
+  /* line-height: 100%;   */
+  vertical-align: middle;
 }
